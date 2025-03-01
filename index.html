@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prova google API "subscribe&like"</title>
+</head>
+
+<body>
+
+<input placeholder="what do you wanna search for?">
+<button onclick="retrieveData()">Search in YouTube</button>
+<div id="output"></div>
+  
+<script>
+    function retrieveData(event){
+        var val = document.getElementsByTagName("input")[0].value;
+        $.ajax({
+            url : 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+val+'&maxResults=50&key=AIzaSyD2PqPeFdz6J5wbQxqcxiS2NI9ry0gMsPI&type=video',
+            type : 'GET',
+            // data : {
+            //     'numberOfWords' : 10
+            // },https://www.googleapis.com/youtube/v3/search?part=snippet&q='+input+'&channelId=UC-3mO2wq311G8lei5ECwU7w&maxResults=50&key=AIzaSyD2PqPeFdz6J5wbQxqcxiS2NI9ry0gMsPI&type=video
+            dataType:'json',
+            success : function(data) {
+             	//clear div
+                document.getElementsByTagName("div")[0].innerHTML = "";
+                //fill div with titles
+                for(var i =0; i<data.items.length; i++){
+                    document.getElementsByTagName("div")[0].innerHTML += '<img data-url="https://www.youtube-nocookie.com/embed/'+data.items[i].id.videoId+'?rel=0&controls=1&modestbranding=1" src="'+data.items[i].snippet.thumbnails.high.url+'" >'
+                    document.getElementsByTagName("div")[0].innerHTML += data.items[i].snippet.title+"\n";
+                }
+
+            },
+            error : function(request,error)
+            {
+                alert("Request: "+JSON.stringify(request));
+            }
+        });
+    }
+</script>
+</body>
+</html>

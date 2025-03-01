@@ -15,11 +15,11 @@
     function retrieveData(event){
         var val = document.getElementsByTagName("input")[0].value;
         $.ajax({
-            url : 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+val+'&maxResults=50&key=AIzaSyD2PqPeFdz6J5wbQxqcxiS2NI9ry0gMsPI&type=video',
+            url : 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+val+'&maxResults=50&key=AIxxxxxx&type=video',
             type : 'GET',
             // data : {
             //     'numberOfWords' : 10
-            // },https://www.googleapis.com/youtube/v3/search?part=snippet&q='+input+'&channelId=UC-3mO2wq311G8lei5ECwU7w&maxResults=50&key=AIzaSyD2PqPeFdz6J5wbQxqcxiS2NI9ry0gMsPI&type=video
+            // },https://www.googleapis.com/youtube/v3/search?part=snippet&q='+input+'&channelId=UC-3mO2wq311G8lei5ECwU7w&maxResults=50&key=AIxxxx&type=video
             dataType:'json',
             success : function(data) {
              	//clear div

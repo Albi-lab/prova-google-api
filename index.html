@@ -14,6 +14,7 @@
 <script>
     function retrieveData(event){
         var val = document.getElementsByTagName("input")[0].value;
+        
         $.ajax({
             url : 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+val+'&maxResults=50&key=AIzaSyD2PqPeFdz6J5wbQxqcxiS2NI9ry0gMsPI&type=video',
             type : 'GET',
